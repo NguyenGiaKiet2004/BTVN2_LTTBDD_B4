@@ -61,6 +61,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -101,23 +102,30 @@ fun BookManagementScreen() {
         modifier = Modifier
             .fillMaxSize()
             .padding(16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
     ) {
         Text(
-            text = "Hệ thống Quản lý Thư viện",
+            text = "Hệ thống\n Quản lý Thư viện",
             fontSize = 24.sp,
-            modifier = Modifier.padding(bottom = 16.dp)
+            modifier = Modifier.padding(bottom = 16.dp),
+            textAlign = TextAlign.Center,
+            fontWeight = FontWeight.Bold
         )
-
+        Spacer(modifier = Modifier.height(16.dp))
+        Text(
+            text = "Sinh viên",
+            modifier = Modifier.padding( bottom = 10.dp).fillMaxWidth(),
+            fontSize = 24.sp,
+            fontWeight = FontWeight.Bold,
+            textAlign = TextAlign.Start
+        )
         // Student name input and "Thay đổi" button
         Row(
             modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Text(
-                text = "Sinh viên",
-                modifier = Modifier.padding(end = 8.dp)
-            )
+
             OutlinedTextField(
                 value = tempName,
                 onValueChange = { tempName = it },
